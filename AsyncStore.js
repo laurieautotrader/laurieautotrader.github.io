@@ -492,13 +492,13 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   var Exception = kotlin_kotlin.$_$.u9;
   var CoroutineImpl = kotlin_kotlin.$_$.t6;
   var protoOf = kotlin_kotlin.$_$.e8;
-  var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.c;
+  var CoroutineScope = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.d;
   var get_COROUTINE_SUSPENDED = kotlin_kotlin.$_$.f6;
   var classMeta = kotlin_kotlin.$_$.e7;
   var setMetadataFor = kotlin_kotlin.$_$.f8;
   var VOID = kotlin_kotlin.$_$.f;
-  var GlobalScope_instance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.b;
-  var launch = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.d;
+  var GlobalScope_instance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.c;
+  var launch = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.e;
   var until = kotlin_kotlin.$_$.q8;
   var Long = kotlin_kotlin.$_$.w9;
   var delay = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.a;
@@ -512,6 +512,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   var plus = kotlin_kotlin.$_$.s5;
   var joinToString = kotlin_kotlin.$_$.k5;
   var emptyList = kotlin_kotlin.$_$.d5;
+  var Dispatchers_getInstance = kotlin_org_jetbrains_kotlinx_kotlinx_coroutines_core.$_$.b;
   var defineProp = kotlin_kotlin.$_$.f7;
   var numberRangeToNumber = kotlin_kotlin.$_$.z7;
   var objectMeta = kotlin_kotlin.$_$.d8;
@@ -527,7 +528,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   //endregion
   //region block: pre-declaration
   setMetadataFor(AsyncStore$asyncTransaction$lambda$slambda, 'AsyncStore$asyncTransaction$lambda$slambda', classMeta, CoroutineImpl, VOID, VOID, VOID, VOID, [1]);
-  setMetadataFor(AsyncStore$salamTest$slambda, 'AsyncStore$salamTest$slambda', classMeta, CoroutineImpl, VOID, VOID, VOID, VOID, [1]);
+  setMetadataFor(AsyncStore$salamTestMain$slambda, 'AsyncStore$salamTestMain$slambda', classMeta, CoroutineImpl, VOID, VOID, VOID, VOID, [1]);
+  setMetadataFor(AsyncStore$salamTestUnconfined$slambda, 'AsyncStore$salamTestUnconfined$slambda', classMeta, CoroutineImpl, VOID, VOID, VOID, VOID, [1]);
+  setMetadataFor(AsyncStore$salamTestDefault$slambda, 'AsyncStore$salamTestDefault$slambda', classMeta, CoroutineImpl, VOID, VOID, VOID, VOID, [1]);
   setMetadataFor(AsyncStore, 'AsyncStore', classMeta, VOID, VOID, AsyncStore);
   setMetadataFor(AsyncState$startWithGlobalScope$slambda$slambda, 'AsyncState$startWithGlobalScope$slambda$slambda', classMeta, CoroutineImpl, VOID, VOID, VOID, VOID, [1]);
   setMetadataFor(Companion, 'Companion', objectMeta);
@@ -719,7 +722,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
               return suspendResult;
             }
 
-            continue $sm;
+            continue;
           case 1:
             postAsyncChanges(this.a1l_1, this.b1l_1, false);
             return Unit_instance;
@@ -857,19 +860,19 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       return Unit_instance;
     };
   }
-  function AsyncStore$salamTest$slambda(resultContinuation) {
+  function AsyncStore$salamTestMain$slambda(resultContinuation) {
     CoroutineImpl.call(this, resultContinuation);
   }
-  protoOf(AsyncStore$salamTest$slambda).d1l = function ($this$launch, $completion) {
+  protoOf(AsyncStore$salamTestMain$slambda).d1l = function ($this$launch, $completion) {
     var tmp = this.e1l($this$launch, $completion);
     tmp.g9_1 = Unit_instance;
     tmp.h9_1 = null;
     return tmp.r9();
   };
-  protoOf(AsyncStore$salamTest$slambda).ea = function (p1, $completion) {
+  protoOf(AsyncStore$salamTestMain$slambda).ea = function (p1, $completion) {
     return this.d1l((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $completion);
   };
-  protoOf(AsyncStore$salamTest$slambda).r9 = function () {
+  protoOf(AsyncStore$salamTestMain$slambda).r9 = function () {
     var suspendResult = this.g9_1;
     $sm: do
       try {
@@ -881,11 +884,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             tmp_0.u1l_1 = 5;
             this.v1l_1 = until(0, this.u1l_1).r();
             this.e9_1 = 1;
-            continue $sm;
+            continue;
           case 1:
             if (!this.v1l_1.s()) {
               this.e9_1 = 3;
-              continue $sm;
+              continue;
             }
 
             this.w1l_1 = this.v1l_1.t();
@@ -897,11 +900,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
               return suspendResult;
             }
 
-            continue $sm;
+            continue;
           case 2:
             println('Salam ' + this.x1l_1);
             this.e9_1 = 1;
-            continue $sm;
+            continue;
           case 3:
             return Unit_instance;
           case 4:
@@ -918,13 +921,161 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       }
      while (true);
   };
-  protoOf(AsyncStore$salamTest$slambda).e1l = function ($this$launch, completion) {
-    var i = new AsyncStore$salamTest$slambda(completion);
+  protoOf(AsyncStore$salamTestMain$slambda).e1l = function ($this$launch, completion) {
+    var i = new AsyncStore$salamTestMain$slambda(completion);
     i.t1l_1 = $this$launch;
     return i;
   };
-  function AsyncStore$salamTest$slambda_0(resultContinuation) {
-    var i = new AsyncStore$salamTest$slambda(resultContinuation);
+  function AsyncStore$salamTestMain$slambda_0(resultContinuation) {
+    var i = new AsyncStore$salamTestMain$slambda(resultContinuation);
+    var l = function ($this$launch, $completion) {
+      return i.d1l($this$launch, $completion);
+    };
+    l.$arity = 1;
+    return l;
+  }
+  function AsyncStore$salamTestUnconfined$slambda(resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  protoOf(AsyncStore$salamTestUnconfined$slambda).d1l = function ($this$launch, $completion) {
+    var tmp = this.e1l($this$launch, $completion);
+    tmp.g9_1 = Unit_instance;
+    tmp.h9_1 = null;
+    return tmp.r9();
+  };
+  protoOf(AsyncStore$salamTestUnconfined$slambda).ea = function (p1, $completion) {
+    return this.d1l((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $completion);
+  };
+  protoOf(AsyncStore$salamTestUnconfined$slambda).r9 = function () {
+    var suspendResult = this.g9_1;
+    $sm: do
+      try {
+        var tmp = this.e9_1;
+        switch (tmp) {
+          case 0:
+            this.f9_1 = 4;
+            var tmp_0 = this;
+            tmp_0.h1m_1 = 5;
+            this.i1m_1 = until(0, this.h1m_1).r();
+            this.e9_1 = 1;
+            continue;
+          case 1:
+            if (!this.i1m_1.s()) {
+              this.e9_1 = 3;
+              continue;
+            }
+
+            this.j1m_1 = this.i1m_1.t();
+            var tmp_1 = this;
+            tmp_1.k1m_1 = this.j1m_1;
+            this.e9_1 = 2;
+            suspendResult = delay(new Long(2000, 0), this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue;
+          case 2:
+            println('Salam ' + this.k1m_1);
+            this.e9_1 = 1;
+            continue;
+          case 3:
+            return Unit_instance;
+          case 4:
+            throw this.h9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.f9_1 === 4) {
+          throw e;
+        } else {
+          this.e9_1 = this.f9_1;
+          this.h9_1 = e;
+        }
+      }
+     while (true);
+  };
+  protoOf(AsyncStore$salamTestUnconfined$slambda).e1l = function ($this$launch, completion) {
+    var i = new AsyncStore$salamTestUnconfined$slambda(completion);
+    i.g1m_1 = $this$launch;
+    return i;
+  };
+  function AsyncStore$salamTestUnconfined$slambda_0(resultContinuation) {
+    var i = new AsyncStore$salamTestUnconfined$slambda(resultContinuation);
+    var l = function ($this$launch, $completion) {
+      return i.d1l($this$launch, $completion);
+    };
+    l.$arity = 1;
+    return l;
+  }
+  function AsyncStore$salamTestDefault$slambda(resultContinuation) {
+    CoroutineImpl.call(this, resultContinuation);
+  }
+  protoOf(AsyncStore$salamTestDefault$slambda).d1l = function ($this$launch, $completion) {
+    var tmp = this.e1l($this$launch, $completion);
+    tmp.g9_1 = Unit_instance;
+    tmp.h9_1 = null;
+    return tmp.r9();
+  };
+  protoOf(AsyncStore$salamTestDefault$slambda).ea = function (p1, $completion) {
+    return this.d1l((!(p1 == null) ? isInterface(p1, CoroutineScope) : false) ? p1 : THROW_CCE(), $completion);
+  };
+  protoOf(AsyncStore$salamTestDefault$slambda).r9 = function () {
+    var suspendResult = this.g9_1;
+    $sm: do
+      try {
+        var tmp = this.e9_1;
+        switch (tmp) {
+          case 0:
+            this.f9_1 = 4;
+            var tmp_0 = this;
+            tmp_0.u1m_1 = 5;
+            this.v1m_1 = until(0, this.u1m_1).r();
+            this.e9_1 = 1;
+            continue;
+          case 1:
+            if (!this.v1m_1.s()) {
+              this.e9_1 = 3;
+              continue;
+            }
+
+            this.w1m_1 = this.v1m_1.t();
+            var tmp_1 = this;
+            tmp_1.x1m_1 = this.w1m_1;
+            this.e9_1 = 2;
+            suspendResult = delay(new Long(2000, 0), this);
+            if (suspendResult === get_COROUTINE_SUSPENDED()) {
+              return suspendResult;
+            }
+
+            continue;
+          case 2:
+            println('Salam ' + this.x1m_1);
+            this.e9_1 = 1;
+            continue;
+          case 3:
+            return Unit_instance;
+          case 4:
+            throw this.h9_1;
+        }
+      } catch ($p) {
+        var e = $p;
+        if (this.f9_1 === 4) {
+          throw e;
+        } else {
+          this.e9_1 = this.f9_1;
+          this.h9_1 = e;
+        }
+      }
+     while (true);
+  };
+  protoOf(AsyncStore$salamTestDefault$slambda).e1l = function ($this$launch, completion) {
+    var i = new AsyncStore$salamTestDefault$slambda(completion);
+    i.t1m_1 = $this$launch;
+    return i;
+  };
+  function AsyncStore$salamTestDefault$slambda_0(resultContinuation) {
+    var i = new AsyncStore$salamTestDefault$slambda(resultContinuation);
     var l = function ($this$launch, $completion) {
       return i.d1l($this$launch, $completion);
     };
@@ -972,16 +1123,16 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       throwUninitializedPropertyAccessException('identifier');
     }
   };
-  protoOf(AsyncStore).y1l = function (value) {
+  protoOf(AsyncStore).y1m = function (value) {
     return this.j1k_1('asyncMessage', AsyncStore$_set_asyncMessage_$lambda_mspjfk(this, value));
   };
-  protoOf(AsyncStore).z1l = function () {
+  protoOf(AsyncStore).z1m = function () {
     return this.g1k_1.o1k_1;
   };
-  protoOf(AsyncStore).a1m = function (value) {
+  protoOf(AsyncStore).a1n = function (value) {
     return this.j1k_1('enableButton', AsyncStore$_set_enableButton_$lambda_1j04om(this, value));
   };
-  protoOf(AsyncStore).b1m = function () {
+  protoOf(AsyncStore).b1n = function () {
     return this.g1k_1.p1k_1;
   };
   protoOf(AsyncStore).startAsyncJob = function () {
@@ -1002,7 +1153,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   protoOf(AsyncStore).startWithGlobalScope = function () {
     return this.j1k_1(null, AsyncStore$startWithGlobalScope$lambda(this));
   };
-  protoOf(AsyncStore).c1m = function (path) {
+  protoOf(AsyncStore).c1n = function (path) {
     // Inline function 'kotlin.collections.mapKeys' call
     // Inline function 'kotlinx.serialization.encodeToString' call
     var this_0 = this.e1k_1;
@@ -1042,7 +1193,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   };
   protoOf(AsyncStore).l1k = function (path, $super) {
     path = path === VOID ? emptyList() : path;
-    return $super === VOID ? this.c1m(path) : $super.c1m.call(this, path);
+    return $super === VOID ? this.c1n(path) : $super.c1n.call(this, path);
   };
   protoOf(AsyncStore).setUp = function (identifier, jsonString) {
     this.i1k_1 = identifier;
@@ -1090,13 +1241,24 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     var tmp$ret$2 = this_0.lz(tmp$ret$1, value);
     tmp.c1k(tmp$ret$2);
   };
-  protoOf(AsyncStore).salamTest = function () {
+  protoOf(AsyncStore).salamTestMain = function () {
     var tmp = GlobalScope_instance;
-    launch(tmp, VOID, VOID, AsyncStore$salamTest$slambda_0(null));
+    var tmp_0 = Dispatchers_getInstance().v1h();
+    launch(tmp, tmp_0, VOID, AsyncStore$salamTestMain$slambda_0(null));
+  };
+  protoOf(AsyncStore).salamTestUnconfined = function () {
+    var tmp = GlobalScope_instance;
+    var tmp_0 = Dispatchers_getInstance().s1h_1;
+    launch(tmp, tmp_0, VOID, AsyncStore$salamTestUnconfined$slambda_0(null));
+  };
+  protoOf(AsyncStore).salamTestDefault = function () {
+    var tmp = GlobalScope_instance;
+    var tmp_0 = Dispatchers_getInstance().r1h_1;
+    launch(tmp, tmp_0, VOID, AsyncStore$salamTestDefault$slambda_0(null));
   };
   function AsyncState$startWithGlobalScope$slambda$slambda(this$0, $postChanges, resultContinuation) {
-    this.l1m_1 = this$0;
-    this.m1m_1 = $postChanges;
+    this.l1n_1 = this$0;
+    this.m1n_1 = $postChanges;
     CoroutineImpl.call(this, resultContinuation);
   }
   protoOf(AsyncState$startWithGlobalScope$slambda$slambda).d1l = function ($this$launch, $completion) {
@@ -1116,30 +1278,30 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         switch (tmp) {
           case 0:
             this.f9_1 = 5;
-            this.o1m_1 = numberRangeToNumber(1, 5).r();
+            this.o1n_1 = numberRangeToNumber(1, 5).r();
             this.e9_1 = 1;
-            continue $sm;
+            continue;
           case 1:
-            if (!this.o1m_1.s()) {
+            if (!this.o1n_1.s()) {
               this.e9_1 = 3;
-              continue $sm;
+              continue;
             }
 
-            this.p1m_1 = this.o1m_1.t();
+            this.p1n_1 = this.o1n_1.t();
             this.e9_1 = 2;
             suspendResult = delay(new Long(2000, 0), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
-            continue $sm;
+            continue;
           case 2:
-            var tmp1_this = this.l1m_1;
+            var tmp1_this = this.l1n_1;
             tmp1_this.q1k_1 = tmp1_this.q1k_1 + 1 | 0;
-            this.l1m_1.o1k_1 = 'async job repeat, count = ' + this.l1m_1.q1k_1;
-            this.m1m_1();
+            this.l1n_1.o1k_1 = 'async job repeat, count = ' + this.l1n_1.q1k_1;
+            this.m1n_1();
             this.e9_1 = 1;
-            continue $sm;
+            continue;
           case 3:
             this.e9_1 = 4;
             suspendResult = delay(new Long(2000, 0), this);
@@ -1147,11 +1309,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
               return suspendResult;
             }
 
-            continue $sm;
+            continue;
           case 4:
-            this.l1m_1.o1k_1 = 'async job end, count = ' + this.l1m_1.q1k_1;
-            this.l1m_1.p1k_1 = true;
-            this.m1m_1();
+            this.l1n_1.o1k_1 = 'async job end, count = ' + this.l1n_1.q1k_1;
+            this.l1n_1.p1k_1 = true;
+            this.m1n_1();
             return Unit_instance;
           case 5:
             throw this.h9_1;
@@ -1168,8 +1330,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
      while (true);
   };
   protoOf(AsyncState$startWithGlobalScope$slambda$slambda).e1l = function ($this$launch, completion) {
-    var i = new AsyncState$startWithGlobalScope$slambda$slambda(this.l1m_1, this.m1m_1, completion);
-    i.n1m_1 = $this$launch;
+    var i = new AsyncState$startWithGlobalScope$slambda$slambda(this.l1n_1, this.m1n_1, completion);
+    i.n1n_1 = $this$launch;
     return i;
   };
   function AsyncState$startWithGlobalScope$slambda$slambda_0(this$0, $postChanges, resultContinuation) {
@@ -1192,10 +1354,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     tmp0_serialDesc.zp('asyncMessage', true);
     tmp0_serialDesc.zp('enableButton', true);
     tmp0_serialDesc.zp('count', true);
-    this.q1m_1 = tmp0_serialDesc;
+    this.q1n_1 = tmp0_serialDesc;
   }
   protoOf($serializer).qf = function () {
-    return this.q1m_1;
+    return this.q1n_1;
   };
   protoOf($serializer).oq = function () {
     // Inline function 'kotlin.arrayOf' call
@@ -1204,7 +1366,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     return [StringSerializer_getInstance(), BooleanSerializer_getInstance(), IntSerializer_getInstance()];
   };
   protoOf($serializer).sf = function (decoder) {
-    var tmp0_desc = this.q1m_1;
+    var tmp0_desc = this.q1n_1;
     var tmp1_flag = true;
     var tmp2_index = 0;
     var tmp3_bitMask0 = 0;
@@ -1245,8 +1407,8 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     tmp8_input.qi(tmp0_desc);
     return AsyncState_init_$Create$(tmp3_bitMask0, tmp4_local0, tmp5_local1, tmp6_local2, null);
   };
-  protoOf($serializer).r1m = function (encoder, value) {
-    var tmp0_desc = this.q1m_1;
+  protoOf($serializer).r1n = function (encoder, value) {
+    var tmp0_desc = this.q1n_1;
     var tmp1_output = encoder.pi(tmp0_desc);
     if (tmp1_output.jk(tmp0_desc, 0) ? true : !(value.o1k_1 === 'tap start job to start an async job....')) {
       tmp1_output.dk(tmp0_desc, 0, value.o1k_1);
@@ -1260,7 +1422,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     tmp1_output.qi(tmp0_desc);
   };
   protoOf($serializer).rf = function (encoder, value) {
-    return this.r1m(encoder, value instanceof AsyncState ? value : THROW_CCE());
+    return this.r1n(encoder, value instanceof AsyncState ? value : THROW_CCE());
   };
   var $serializer_instance;
   function $serializer_getInstance() {
@@ -1270,7 +1432,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   }
   function AsyncState_init_$Init$(seen1, asyncMessage, enableButton, count, serializationConstructorMarker, $this) {
     if (!(0 === (0 & seen1))) {
-      throwMissingFieldException(seen1, 0, $serializer_getInstance().q1m_1);
+      throwMissingFieldException(seen1, 0, $serializer_getInstance().q1n_1);
     }
     if (0 === (seen1 & 1))
       $this.o1k_1 = 'tap start job to start an async job....';
@@ -1290,17 +1452,17 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     return AsyncState_init_$Init$(seen1, asyncMessage, enableButton, count, serializationConstructorMarker, objectCreate(protoOf(AsyncState)));
   }
   function AsyncState$startAsyncJob$slambda(this$0, resultContinuation) {
-    this.a1n_1 = this$0;
+    this.a1o_1 = this$0;
     CoroutineImpl.call(this, resultContinuation);
   }
-  protoOf(AsyncState$startAsyncJob$slambda).g1n = function (postChanges, $completion) {
-    var tmp = this.h1n(postChanges, $completion);
+  protoOf(AsyncState$startAsyncJob$slambda).g1o = function (postChanges, $completion) {
+    var tmp = this.h1o(postChanges, $completion);
     tmp.g9_1 = Unit_instance;
     tmp.h9_1 = null;
     return tmp.r9();
   };
   protoOf(AsyncState$startAsyncJob$slambda).ea = function (p1, $completion) {
-    return this.g1n((!(p1 == null) ? typeof p1 === 'function' : false) ? p1 : THROW_CCE(), $completion);
+    return this.g1o((!(p1 == null) ? typeof p1 === 'function' : false) ? p1 : THROW_CCE(), $completion);
   };
   protoOf(AsyncState$startAsyncJob$slambda).r9 = function () {
     var suspendResult = this.g9_1;
@@ -1311,36 +1473,36 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
           case 0:
             this.f9_1 = 4;
             var tmp_0 = this;
-            tmp_0.c1n_1 = 5;
-            this.d1n_1 = until(0, this.c1n_1).r();
+            tmp_0.c1o_1 = 5;
+            this.d1o_1 = until(0, this.c1o_1).r();
             this.e9_1 = 1;
-            continue $sm;
+            continue;
           case 1:
-            if (!this.d1n_1.s()) {
+            if (!this.d1o_1.s()) {
               this.e9_1 = 3;
-              continue $sm;
+              continue;
             }
 
-            this.e1n_1 = this.d1n_1.t();
+            this.e1o_1 = this.d1o_1.t();
             var tmp_1 = this;
-            tmp_1.f1n_1 = this.e1n_1;
+            tmp_1.f1o_1 = this.e1o_1;
             this.e9_1 = 2;
             suspendResult = delay(new Long(2000, 0), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
-            continue $sm;
+            continue;
           case 2:
-            var tmp0_this = this.a1n_1;
+            var tmp0_this = this.a1o_1;
             tmp0_this.q1k_1 = tmp0_this.q1k_1 + 1 | 0;
-            this.a1n_1.o1k_1 = 'async job repeat, count = ' + this.a1n_1.q1k_1;
-            this.b1n_1();
+            this.a1o_1.o1k_1 = 'async job repeat, count = ' + this.a1o_1.q1k_1;
+            this.b1o_1();
             this.e9_1 = 1;
-            continue $sm;
+            continue;
           case 3:
-            this.a1n_1.o1k_1 = 'async job end, count = ' + this.a1n_1.q1k_1;
-            this.a1n_1.p1k_1 = true;
+            this.a1o_1.o1k_1 = 'async job end, count = ' + this.a1o_1.q1k_1;
+            this.a1o_1.p1k_1 = true;
             return Unit_instance;
           case 4:
             throw this.h9_1;
@@ -1356,35 +1518,35 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       }
      while (true);
   };
-  protoOf(AsyncState$startAsyncJob$slambda).h1n = function (postChanges, completion) {
-    var i = new AsyncState$startAsyncJob$slambda(this.a1n_1, completion);
-    i.b1n_1 = postChanges;
+  protoOf(AsyncState$startAsyncJob$slambda).h1o = function (postChanges, completion) {
+    var i = new AsyncState$startAsyncJob$slambda(this.a1o_1, completion);
+    i.b1o_1 = postChanges;
     return i;
   };
   function AsyncState$startAsyncJob$slambda_0(this$0, resultContinuation) {
     var i = new AsyncState$startAsyncJob$slambda(this$0, resultContinuation);
     var l = function (postChanges, $completion) {
-      return i.g1n(postChanges, $completion);
+      return i.g1o(postChanges, $completion);
     };
     l.$arity = 1;
     return l;
   }
   function AsyncState$startAsyncNoDelay$slambda(this$0, resultContinuation) {
-    this.q1n_1 = this$0;
+    this.q1o_1 = this$0;
     CoroutineImpl.call(this, resultContinuation);
   }
-  protoOf(AsyncState$startAsyncNoDelay$slambda).g1n = function (postChanges, $completion) {
-    var tmp = this.h1n(postChanges, $completion);
+  protoOf(AsyncState$startAsyncNoDelay$slambda).g1o = function (postChanges, $completion) {
+    var tmp = this.h1o(postChanges, $completion);
     tmp.g9_1 = Unit_instance;
     tmp.h9_1 = null;
     return tmp.r9();
   };
   protoOf(AsyncState$startAsyncNoDelay$slambda).ea = function (p1, $completion) {
-    return this.g1n((!(p1 == null) ? typeof p1 === 'function' : false) ? p1 : THROW_CCE(), $completion);
+    return this.g1o((!(p1 == null) ? typeof p1 === 'function' : false) ? p1 : THROW_CCE(), $completion);
   };
   protoOf(AsyncState$startAsyncNoDelay$slambda).r9 = function () {
     var suspendResult = this.g9_1;
-    $sm: do
+    do
       try {
         var tmp = this.e9_1;
         if (tmp === 0) {
@@ -1394,14 +1556,14 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             do {
               var index = inductionVariable;
               inductionVariable = inductionVariable + 1 | 0;
-              var tmp0_this = this.q1n_1;
+              var tmp0_this = this.q1o_1;
               tmp0_this.q1k_1 = tmp0_this.q1k_1 + 1 | 0;
-              this.q1n_1.o1k_1 = 'async job repeat, count = ' + this.q1n_1.q1k_1;
-              this.r1n_1();
+              this.q1o_1.o1k_1 = 'async job repeat, count = ' + this.q1o_1.q1k_1;
+              this.r1o_1();
             }
              while (inductionVariable < 5);
-          this.q1n_1.o1k_1 = 'async job end, count = ' + this.q1n_1.q1k_1;
-          this.q1n_1.p1k_1 = true;
+          this.q1o_1.o1k_1 = 'async job end, count = ' + this.q1o_1.q1k_1;
+          this.q1o_1.p1k_1 = true;
           return Unit_instance;
         } else if (tmp === 1) {
           throw this.h9_1;
@@ -1412,31 +1574,31 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       }
      while (true);
   };
-  protoOf(AsyncState$startAsyncNoDelay$slambda).h1n = function (postChanges, completion) {
-    var i = new AsyncState$startAsyncNoDelay$slambda(this.q1n_1, completion);
-    i.r1n_1 = postChanges;
+  protoOf(AsyncState$startAsyncNoDelay$slambda).h1o = function (postChanges, completion) {
+    var i = new AsyncState$startAsyncNoDelay$slambda(this.q1o_1, completion);
+    i.r1o_1 = postChanges;
     return i;
   };
   function AsyncState$startAsyncNoDelay$slambda_0(this$0, resultContinuation) {
     var i = new AsyncState$startAsyncNoDelay$slambda(this$0, resultContinuation);
     var l = function (postChanges, $completion) {
-      return i.g1n(postChanges, $completion);
+      return i.g1o(postChanges, $completion);
     };
     l.$arity = 1;
     return l;
   }
   function AsyncState$startAsyncJobDelayNoRepeat$slambda(this$0, resultContinuation) {
-    this.a1o_1 = this$0;
+    this.a1p_1 = this$0;
     CoroutineImpl.call(this, resultContinuation);
   }
-  protoOf(AsyncState$startAsyncJobDelayNoRepeat$slambda).g1n = function (postChanges, $completion) {
-    var tmp = this.h1n(postChanges, $completion);
+  protoOf(AsyncState$startAsyncJobDelayNoRepeat$slambda).g1o = function (postChanges, $completion) {
+    var tmp = this.h1o(postChanges, $completion);
     tmp.g9_1 = Unit_instance;
     tmp.h9_1 = null;
     return tmp.r9();
   };
   protoOf(AsyncState$startAsyncJobDelayNoRepeat$slambda).ea = function (p1, $completion) {
-    return this.g1n((!(p1 == null) ? typeof p1 === 'function' : false) ? p1 : THROW_CCE(), $completion);
+    return this.g1o((!(p1 == null) ? typeof p1 === 'function' : false) ? p1 : THROW_CCE(), $completion);
   };
   protoOf(AsyncState$startAsyncJobDelayNoRepeat$slambda).r9 = function () {
     var suspendResult = this.g9_1;
@@ -1452,46 +1614,46 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
               return suspendResult;
             }
 
-            continue $sm;
+            continue;
           case 1:
-            var tmp0_this = this.a1o_1;
+            var tmp0_this = this.a1p_1;
             tmp0_this.q1k_1 = tmp0_this.q1k_1 + 1 | 0;
-            this.a1o_1.o1k_1 = 'async job repeat, count = ' + this.a1o_1.q1k_1;
-            this.b1o_1();
+            this.a1p_1.o1k_1 = 'async job repeat, count = ' + this.a1p_1.q1k_1;
+            this.b1p_1();
             this.e9_1 = 2;
             suspendResult = delay(new Long(2000, 0), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
-            continue $sm;
+            continue;
           case 2:
-            var tmp2_this = this.a1o_1;
+            var tmp2_this = this.a1p_1;
             tmp2_this.q1k_1 = tmp2_this.q1k_1 + 1 | 0;
-            this.a1o_1.o1k_1 = 'async job repeat, count = ' + this.a1o_1.q1k_1;
-            this.b1o_1();
+            this.a1p_1.o1k_1 = 'async job repeat, count = ' + this.a1p_1.q1k_1;
+            this.b1p_1();
             this.e9_1 = 3;
             suspendResult = delay(new Long(2000, 0), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
-            continue $sm;
+            continue;
           case 3:
-            var tmp4_this = this.a1o_1;
+            var tmp4_this = this.a1p_1;
             tmp4_this.q1k_1 = tmp4_this.q1k_1 + 1 | 0;
-            this.a1o_1.o1k_1 = 'async job repeat, count = ' + this.a1o_1.q1k_1;
-            this.b1o_1();
+            this.a1p_1.o1k_1 = 'async job repeat, count = ' + this.a1p_1.q1k_1;
+            this.b1p_1();
             this.e9_1 = 4;
             suspendResult = delay(new Long(2000, 0), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
-            continue $sm;
+            continue;
           case 4:
-            this.a1o_1.o1k_1 = 'async job end, count = ' + this.a1o_1.q1k_1;
-            this.a1o_1.p1k_1 = true;
+            this.a1p_1.o1k_1 = 'async job end, count = ' + this.a1p_1.q1k_1;
+            this.a1p_1.p1k_1 = true;
             return Unit_instance;
           case 5:
             throw this.h9_1;
@@ -1507,31 +1669,31 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       }
      while (true);
   };
-  protoOf(AsyncState$startAsyncJobDelayNoRepeat$slambda).h1n = function (postChanges, completion) {
-    var i = new AsyncState$startAsyncJobDelayNoRepeat$slambda(this.a1o_1, completion);
-    i.b1o_1 = postChanges;
+  protoOf(AsyncState$startAsyncJobDelayNoRepeat$slambda).h1o = function (postChanges, completion) {
+    var i = new AsyncState$startAsyncJobDelayNoRepeat$slambda(this.a1p_1, completion);
+    i.b1p_1 = postChanges;
     return i;
   };
   function AsyncState$startAsyncJobDelayNoRepeat$slambda_0(this$0, resultContinuation) {
     var i = new AsyncState$startAsyncJobDelayNoRepeat$slambda(this$0, resultContinuation);
     var l = function (postChanges, $completion) {
-      return i.g1n(postChanges, $completion);
+      return i.g1o(postChanges, $completion);
     };
     l.$arity = 1;
     return l;
   }
   function AsyncState$startAsyncLoopWithDelay$slambda(this$0, resultContinuation) {
-    this.k1o_1 = this$0;
+    this.k1p_1 = this$0;
     CoroutineImpl.call(this, resultContinuation);
   }
-  protoOf(AsyncState$startAsyncLoopWithDelay$slambda).g1n = function (postChanges, $completion) {
-    var tmp = this.h1n(postChanges, $completion);
+  protoOf(AsyncState$startAsyncLoopWithDelay$slambda).g1o = function (postChanges, $completion) {
+    var tmp = this.h1o(postChanges, $completion);
     tmp.g9_1 = Unit_instance;
     tmp.h9_1 = null;
     return tmp.r9();
   };
   protoOf(AsyncState$startAsyncLoopWithDelay$slambda).ea = function (p1, $completion) {
-    return this.g1n((!(p1 == null) ? typeof p1 === 'function' : false) ? p1 : THROW_CCE(), $completion);
+    return this.g1o((!(p1 == null) ? typeof p1 === 'function' : false) ? p1 : THROW_CCE(), $completion);
   };
   protoOf(AsyncState$startAsyncLoopWithDelay$slambda).r9 = function () {
     var suspendResult = this.g9_1;
@@ -1541,30 +1703,30 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         switch (tmp) {
           case 0:
             this.f9_1 = 5;
-            this.m1o_1 = numberRangeToNumber(1, 5).r();
+            this.m1p_1 = numberRangeToNumber(1, 5).r();
             this.e9_1 = 1;
-            continue $sm;
+            continue;
           case 1:
-            if (!this.m1o_1.s()) {
+            if (!this.m1p_1.s()) {
               this.e9_1 = 3;
-              continue $sm;
+              continue;
             }
 
-            this.n1o_1 = this.m1o_1.t();
+            this.n1p_1 = this.m1p_1.t();
             this.e9_1 = 2;
             suspendResult = delay(new Long(2000, 0), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
-            continue $sm;
+            continue;
           case 2:
-            var tmp1_this = this.k1o_1;
+            var tmp1_this = this.k1p_1;
             tmp1_this.q1k_1 = tmp1_this.q1k_1 + 1 | 0;
-            this.k1o_1.o1k_1 = 'async job repeat, count = ' + this.k1o_1.q1k_1;
-            this.l1o_1();
+            this.k1p_1.o1k_1 = 'async job repeat, count = ' + this.k1p_1.q1k_1;
+            this.l1p_1();
             this.e9_1 = 1;
-            continue $sm;
+            continue;
           case 3:
             this.e9_1 = 4;
             suspendResult = delay(new Long(2000, 0), this);
@@ -1572,10 +1734,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
               return suspendResult;
             }
 
-            continue $sm;
+            continue;
           case 4:
-            this.k1o_1.o1k_1 = 'async job end, count = ' + this.k1o_1.q1k_1;
-            this.k1o_1.p1k_1 = true;
+            this.k1p_1.o1k_1 = 'async job end, count = ' + this.k1p_1.q1k_1;
+            this.k1p_1.p1k_1 = true;
             return Unit_instance;
           case 5:
             throw this.h9_1;
@@ -1591,31 +1753,31 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       }
      while (true);
   };
-  protoOf(AsyncState$startAsyncLoopWithDelay$slambda).h1n = function (postChanges, completion) {
-    var i = new AsyncState$startAsyncLoopWithDelay$slambda(this.k1o_1, completion);
-    i.l1o_1 = postChanges;
+  protoOf(AsyncState$startAsyncLoopWithDelay$slambda).h1o = function (postChanges, completion) {
+    var i = new AsyncState$startAsyncLoopWithDelay$slambda(this.k1p_1, completion);
+    i.l1p_1 = postChanges;
     return i;
   };
   function AsyncState$startAsyncLoopWithDelay$slambda_0(this$0, resultContinuation) {
     var i = new AsyncState$startAsyncLoopWithDelay$slambda(this$0, resultContinuation);
     var l = function (postChanges, $completion) {
-      return i.g1n(postChanges, $completion);
+      return i.g1o(postChanges, $completion);
     };
     l.$arity = 1;
     return l;
   }
   function AsyncState$startWithThreadSleep$slambda(this$0, resultContinuation) {
-    this.w1o_1 = this$0;
+    this.w1p_1 = this$0;
     CoroutineImpl.call(this, resultContinuation);
   }
-  protoOf(AsyncState$startWithThreadSleep$slambda).g1n = function (postChanges, $completion) {
-    var tmp = this.h1n(postChanges, $completion);
+  protoOf(AsyncState$startWithThreadSleep$slambda).g1o = function (postChanges, $completion) {
+    var tmp = this.h1o(postChanges, $completion);
     tmp.g9_1 = Unit_instance;
     tmp.h9_1 = null;
     return tmp.r9();
   };
   protoOf(AsyncState$startWithThreadSleep$slambda).ea = function (p1, $completion) {
-    return this.g1n((!(p1 == null) ? typeof p1 === 'function' : false) ? p1 : THROW_CCE(), $completion);
+    return this.g1o((!(p1 == null) ? typeof p1 === 'function' : false) ? p1 : THROW_CCE(), $completion);
   };
   protoOf(AsyncState$startWithThreadSleep$slambda).r9 = function () {
     var suspendResult = this.g9_1;
@@ -1625,30 +1787,30 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         switch (tmp) {
           case 0:
             this.f9_1 = 5;
-            this.y1o_1 = numberRangeToNumber(1, 5).r();
+            this.y1p_1 = numberRangeToNumber(1, 5).r();
             this.e9_1 = 1;
-            continue $sm;
+            continue;
           case 1:
-            if (!this.y1o_1.s()) {
+            if (!this.y1p_1.s()) {
               this.e9_1 = 3;
-              continue $sm;
+              continue;
             }
 
-            this.z1o_1 = this.y1o_1.t();
+            this.z1p_1 = this.y1p_1.t();
             this.e9_1 = 2;
             suspendResult = delay(new Long(2000, 0), this);
             if (suspendResult === get_COROUTINE_SUSPENDED()) {
               return suspendResult;
             }
 
-            continue $sm;
+            continue;
           case 2:
-            var tmp1_this = this.w1o_1;
+            var tmp1_this = this.w1p_1;
             tmp1_this.q1k_1 = tmp1_this.q1k_1 + 1 | 0;
-            this.w1o_1.o1k_1 = 'async job repeat, count = ' + this.w1o_1.q1k_1;
-            this.x1o_1();
+            this.w1p_1.o1k_1 = 'async job repeat, count = ' + this.w1p_1.q1k_1;
+            this.x1p_1();
             this.e9_1 = 1;
-            continue $sm;
+            continue;
           case 3:
             this.e9_1 = 4;
             suspendResult = delay(new Long(2000, 0), this);
@@ -1656,10 +1818,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
               return suspendResult;
             }
 
-            continue $sm;
+            continue;
           case 4:
-            this.w1o_1.o1k_1 = 'async job end, count = ' + this.w1o_1.q1k_1;
-            this.w1o_1.p1k_1 = true;
+            this.w1p_1.o1k_1 = 'async job end, count = ' + this.w1p_1.q1k_1;
+            this.w1p_1.p1k_1 = true;
             return Unit_instance;
           case 5:
             throw this.h9_1;
@@ -1675,41 +1837,41 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       }
      while (true);
   };
-  protoOf(AsyncState$startWithThreadSleep$slambda).h1n = function (postChanges, completion) {
-    var i = new AsyncState$startWithThreadSleep$slambda(this.w1o_1, completion);
-    i.x1o_1 = postChanges;
+  protoOf(AsyncState$startWithThreadSleep$slambda).h1o = function (postChanges, completion) {
+    var i = new AsyncState$startWithThreadSleep$slambda(this.w1p_1, completion);
+    i.x1p_1 = postChanges;
     return i;
   };
   function AsyncState$startWithThreadSleep$slambda_0(this$0, resultContinuation) {
     var i = new AsyncState$startWithThreadSleep$slambda(this$0, resultContinuation);
     var l = function (postChanges, $completion) {
-      return i.g1n(postChanges, $completion);
+      return i.g1o(postChanges, $completion);
     };
     l.$arity = 1;
     return l;
   }
   function AsyncState$startWithGlobalScope$slambda(this$0, resultContinuation) {
-    this.i1p_1 = this$0;
+    this.i1q_1 = this$0;
     CoroutineImpl.call(this, resultContinuation);
   }
-  protoOf(AsyncState$startWithGlobalScope$slambda).g1n = function (postChanges, $completion) {
-    var tmp = this.h1n(postChanges, $completion);
+  protoOf(AsyncState$startWithGlobalScope$slambda).g1o = function (postChanges, $completion) {
+    var tmp = this.h1o(postChanges, $completion);
     tmp.g9_1 = Unit_instance;
     tmp.h9_1 = null;
     return tmp.r9();
   };
   protoOf(AsyncState$startWithGlobalScope$slambda).ea = function (p1, $completion) {
-    return this.g1n((!(p1 == null) ? typeof p1 === 'function' : false) ? p1 : THROW_CCE(), $completion);
+    return this.g1o((!(p1 == null) ? typeof p1 === 'function' : false) ? p1 : THROW_CCE(), $completion);
   };
   protoOf(AsyncState$startWithGlobalScope$slambda).r9 = function () {
     var suspendResult = this.g9_1;
-    $sm: do
+    do
       try {
         var tmp = this.e9_1;
         if (tmp === 0) {
           this.f9_1 = 1;
           var tmp_0 = GlobalScope_instance;
-          launch(tmp_0, VOID, VOID, AsyncState$startWithGlobalScope$slambda$slambda_0(this.i1p_1, this.j1p_1, null));
+          launch(tmp_0, VOID, VOID, AsyncState$startWithGlobalScope$slambda$slambda_0(this.i1q_1, this.j1q_1, null));
           return Unit_instance;
         } else if (tmp === 1) {
           throw this.h9_1;
@@ -1720,15 +1882,15 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       }
      while (true);
   };
-  protoOf(AsyncState$startWithGlobalScope$slambda).h1n = function (postChanges, completion) {
-    var i = new AsyncState$startWithGlobalScope$slambda(this.i1p_1, completion);
-    i.j1p_1 = postChanges;
+  protoOf(AsyncState$startWithGlobalScope$slambda).h1o = function (postChanges, completion) {
+    var i = new AsyncState$startWithGlobalScope$slambda(this.i1q_1, completion);
+    i.j1q_1 = postChanges;
     return i;
   };
   function AsyncState$startWithGlobalScope$slambda_0(this$0, resultContinuation) {
     var i = new AsyncState$startWithGlobalScope$slambda(this$0, resultContinuation);
     var l = function (postChanges, $completion) {
-      return i.g1n(postChanges, $completion);
+      return i.g1o(postChanges, $completion);
     };
     l.$arity = 1;
     return l;
@@ -1738,7 +1900,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     this.p1k_1 = true;
     this.q1k_1 = 1000;
   }
-  protoOf(AsyncState).k1p = function () {
+  protoOf(AsyncState).k1q = function () {
     var tmp = this.n1k_1;
     if (!(tmp == null))
       return tmp;
@@ -1750,47 +1912,47 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     this.p1k_1 = false;
     this.q1k_1 = 1000;
     this.o1k_1 = 'async job started....delay and repeat';
-    var tmp = this.k1p();
+    var tmp = this.k1q();
     tmp(AsyncState$startAsyncJob$slambda_0(this, null));
   };
   protoOf(AsyncState).g1l = function () {
     this.p1k_1 = false;
     this.q1k_1 = 1000;
     this.o1k_1 = 'async job started....no delay and repeat';
-    var tmp = this.k1p();
+    var tmp = this.k1q();
     tmp(AsyncState$startAsyncNoDelay$slambda_0(this, null));
   };
   protoOf(AsyncState).h1l = function () {
     this.p1k_1 = false;
     this.q1k_1 = 1000;
     this.o1k_1 = 'async job started....delay and no repeat';
-    var tmp = this.k1p();
+    var tmp = this.k1q();
     tmp(AsyncState$startAsyncJobDelayNoRepeat$slambda_0(this, null));
   };
   protoOf(AsyncState).i1l = function () {
     this.p1k_1 = false;
     this.q1k_1 = 1000;
     this.o1k_1 = 'async job started....delay and loop';
-    var tmp = this.k1p();
+    var tmp = this.k1q();
     tmp(AsyncState$startAsyncLoopWithDelay$slambda_0(this, null));
   };
   protoOf(AsyncState).j1l = function () {
     this.p1k_1 = false;
     this.q1k_1 = 1000;
     this.o1k_1 = 'async job started....delay and loop';
-    var tmp = this.k1p();
+    var tmp = this.k1q();
     tmp(AsyncState$startWithThreadSleep$slambda_0(this, null));
   };
   protoOf(AsyncState).k1l = function () {
     this.p1k_1 = false;
     this.q1k_1 = 1000;
     this.o1k_1 = 'async job started....global scope';
-    var tmp = this.k1p();
+    var tmp = this.k1q();
     tmp(AsyncState$startWithGlobalScope$slambda_0(this, null));
   };
   //region block: post-declaration
-  defineProp(protoOf(AsyncStore), 'asyncMessage', protoOf(AsyncStore).z1l, protoOf(AsyncStore).y1l);
-  defineProp(protoOf(AsyncStore), 'enableButton', protoOf(AsyncStore).b1m, protoOf(AsyncStore).a1m);
+  defineProp(protoOf(AsyncStore), 'asyncMessage', protoOf(AsyncStore).z1m, protoOf(AsyncStore).y1m);
+  defineProp(protoOf(AsyncStore), 'enableButton', protoOf(AsyncStore).b1n, protoOf(AsyncStore).a1n);
   protoOf($serializer).pq = typeParametersSerializers;
   //endregion
   //region block: init
@@ -1838,7 +2000,7 @@ if (typeof Array.prototype.fill === 'undefined') {
       O[k] = value;
       k++;
     }
-    ; // Step 13.
+     // Step 13.
     return O;
   }});
 }
@@ -4721,7 +4883,7 @@ if (typeof Math.imul === 'undefined') {
       if (limit < 0 ? true : count <= limit) {
         appendElement(buffer, element, transform);
       } else
-        break $l$loop;
+        break;
     }
     if (limit >= 0 ? count > limit : false) {
       buffer.s6(truncated);
@@ -4762,7 +4924,7 @@ if (typeof Math.imul === 'undefined') {
       if (limit < 0 ? true : count <= limit) {
         appendElement(buffer, element, transform);
       } else
-        break $l$loop;
+        break;
     }
     if (limit >= 0 ? count > limit : false) {
       buffer.s6(truncated);
@@ -5520,7 +5682,7 @@ if (typeof Math.imul === 'undefined') {
     // Inline function 'kotlin.js.jsIn' call
     if (!('kotlinHashCodeValue$' in obj)) {
       var hash = calculateRandomHash();
-      var descriptor = new Object();
+      var descriptor = {};
       descriptor.value = hash;
       descriptor.enumerable = false;
       Object.defineProperty(obj, 'kotlinHashCodeValue$', descriptor);
@@ -6448,7 +6610,7 @@ if (typeof Math.imul === 'undefined') {
       inductionVariable = inductionVariable + 1 | 0;
       if (arity === item) {
         result = true;
-        break $l$loop;
+        break;
       }
     }
     return result;
@@ -7836,7 +7998,7 @@ if (typeof Math.imul === 'undefined') {
         var index = inductionVariable;
         inductionVariable = inductionVariable + 1 | 0;
         if (!iterator.s())
-          break $l$loop;
+          break;
         $this.ka_1[index] = iterator.t();
       }
        while (inductionVariable < last);
@@ -7847,7 +8009,7 @@ if (typeof Math.imul === 'undefined') {
         var index_0 = inductionVariable_0;
         inductionVariable_0 = inductionVariable_0 + 1 | 0;
         if (!iterator.s())
-          break $l$loop_0;
+          break;
         $this.ka_1[index_0] = iterator.t();
       }
        while (inductionVariable_0 < last_0);
@@ -10226,7 +10388,7 @@ if (typeof Math.imul === 'undefined') {
             if (tmp)
               throw IllegalArgumentException_init_$Create$();
             isTimeComponent = true;
-            continue $l$loop;
+            continue;
           }
           // Inline function 'kotlin.time.substringWhile' call
           var startIndex = index;
@@ -10243,7 +10405,7 @@ if (typeof Math.imul === 'undefined') {
               tmp_0 = false;
             }
             if (!tmp_0) {
-              break $l$loop_0;
+              break;
             }
             i = i + 1 | 0;
           }
@@ -10319,7 +10481,7 @@ if (typeof Math.imul === 'undefined') {
                     tmp_5 = false;
                   }
                   if (!tmp_5) {
-                    break $l$loop_1;
+                    break;
                   }
                   i_0 = i_0 + 1 | 0;
                 }
@@ -10341,7 +10503,7 @@ if (typeof Math.imul === 'undefined') {
                   tmp_6 = false;
                 }
                 if (!tmp_6) {
-                  break $l$loop_2;
+                  break;
                 }
                 i_1 = i_1 + 1 | 0;
               }
@@ -10367,7 +10529,7 @@ if (typeof Math.imul === 'undefined') {
                   tmp_7 = false;
                 }
                 if (!tmp_7) {
-                  break $l$loop_3;
+                  break;
                 }
                 i_2 = i_2 + 1 | 0;
               }
@@ -10613,7 +10775,7 @@ if (typeof Math.imul === 'undefined') {
             // Inline function 'kotlin.Companion.failure' call
             var tmp$ret$3 = _Result___init__impl__xyqfz8(createFailure(e));
             cont.s9(tmp$ret$3);
-            continue $l$loop;
+            continue;
           } else {
             throw $p;
           }
@@ -14396,7 +14558,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     var state_0 = state;
     var child_0 = child;
     var proposedUpdate_0 = proposedUpdate;
-    $l$1: do {
+    do {
       $l$0: do {
         var handle = invokeOnCompletion(child_0.m1g_1, VOID, false, new ChildCompletion($this_0, state_0, child_0, proposedUpdate_0));
         if (!(handle === NonDisposableHandle_instance))
@@ -14413,7 +14575,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         state_0 = state_0;
         child_0 = nextChild_0;
         proposedUpdate_0 = proposedUpdate_0;
-        continue $l$0;
+
       }
        while (false);
     }
@@ -14432,7 +14594,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     $l$loop: while (true) {
       // Inline function 'kotlinx.coroutines.internal.LinkedListNode.isRemoved' call
       if (!cur.j1f_1) {
-        break $l$loop;
+        break;
       }
       // Inline function 'kotlinx.coroutines.internal.LinkedListNode.prevNode' call
       cur = cur.i1f_1;
@@ -14442,7 +14604,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       cur = cur.h1f_1;
       // Inline function 'kotlinx.coroutines.internal.LinkedListNode.isRemoved' call
       if (cur.j1f_1)
-        continue $l$loop_0;
+        continue;
       if (cur instanceof ChildHandleNode)
         return cur;
       if (cur instanceof NodeList)
@@ -15180,7 +15342,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       this.s1c_1 = get_MODE_ATOMIC();
       this.m1c_1.i1e(context, this);
     } else {
-      $l$block: {
+      {
         // Inline function 'kotlinx.coroutines.internal.executeUnconfined' call
         var mode = get_MODE_ATOMIC();
         // Inline function 'kotlinx.coroutines.assert' call
@@ -15201,7 +15363,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             this.l9();
             this.p1c_1;
             this.n1c_1.s9(result);
-            $l$loop: while (eventLoop.p1e()) {
+            while (eventLoop.p1e()) {
             }
           } catch ($p) {
             if ($p instanceof Error) {
@@ -15240,7 +15402,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         _this__u8e3s4.m1c_1.i1e(_this__u8e3s4.l9(), _this__u8e3s4);
         tmp_0 = Unit_instance;
       } else {
-        $l$block: {
+        {
           // Inline function 'kotlinx.coroutines.internal.executeUnconfined' call
           var mode = get_MODE_CANCELLABLE();
           // Inline function 'kotlinx.coroutines.assert' call
@@ -15280,7 +15442,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
                 _this__u8e3s4.p1c_1;
                 _this__u8e3s4.n1c_1.s9(result);
               }
-              $l$loop: while (eventLoop.p1e()) {
+              while (eventLoop.p1e()) {
               }
             } catch ($p) {
               if ($p instanceof Error) {
@@ -15464,7 +15626,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       try {
         // Inline function 'kotlinx.coroutines.resumeUnconfined.<anonymous>' call
         resume(_this__u8e3s4, _this__u8e3s4.k1d(), true);
-        $l$loop: while (eventLoop.p1e()) {
+        while (eventLoop.p1e()) {
         }
       } catch ($p) {
         if ($p instanceof Error) {
@@ -16135,9 +16297,10 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   //region block: exports
   _.$_$ = _.$_$ || {};
   _.$_$.a = delay;
-  _.$_$.b = GlobalScope_instance;
-  _.$_$.c = CoroutineScope;
-  _.$_$.d = launch;
+  _.$_$.b = Dispatchers_getInstance;
+  _.$_$.c = GlobalScope_instance;
+  _.$_$.d = CoroutineScope;
+  _.$_$.e = launch;
   //endregion
   return _;
 }));
@@ -17871,7 +18034,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       mainLoop: while (true) {
         var index = composite.fj(this.qf());
         if (index === -1) {
-          break mainLoop;
+          break;
         } else {
           if (index === 0) {
             klassName = composite.zi(this.qf(), index);
@@ -18638,7 +18801,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       $l$loop: while (true) {
         var index = compositeDecoder.fj(this.qf());
         if (index === -1)
-          break $l$loop;
+          break;
         this.em(compositeDecoder, startIndex + index | 0, builder);
       }
     }
@@ -21251,7 +21414,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     mainLoop: while (true) {
       var index = composite.fj($this.dy_1);
       if (index === -1) {
-        break mainLoop;
+        break;
       } else {
         if (index === 0) {
           a = composite.cj($this.dy_1, 0, $this.ay_1);
@@ -21345,7 +21508,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       mainLoop: while (true) {
         var idx = composite.fj(this.qf());
         if (idx === -1) {
-          break mainLoop;
+          break;
         } else {
           if (idx === 0) {
             key_0 = composite.cj(this.qf(), 0, this.sx_1);
@@ -21373,7 +21536,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   function _init_properties_Tuples_kt__dz0qyd() {
     if (!properties_initialized_Tuples_kt_3vs7ar) {
       properties_initialized_Tuples_kt_3vs7ar = true;
-      NULL = new Object();
+      NULL = {};
     }
   }
   function ULongSerializer() {
@@ -23519,7 +23682,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       var tmp0_subject = lastToken;
       if (tmp0_subject !== get_TC_COMMA())
         if (tmp0_subject === get_TC_END_OBJ())
-          break $l$loop;
+          break;
         else {
           $this.n14_1.r13('Expected end of the object or comma');
         }
@@ -23608,12 +23771,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             if (this.w15_1 === get_TC_STRING()) {
               this.x15_1 = readValue(this.t15_1, true);
               this.e9_1 = 2;
-              continue $sm;
+              continue;
             } else {
               if (this.w15_1 === get_TC_OTHER()) {
                 this.x15_1 = readValue(this.t15_1, false);
                 this.e9_1 = 2;
-                continue $sm;
+                continue;
               } else {
                 if (this.w15_1 === get_TC_BEGIN_OBJ()) {
                   this.e9_1 = 1;
@@ -23621,12 +23784,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
                   if (suspendResult === get_COROUTINE_SUSPENDED()) {
                     return suspendResult;
                   }
-                  continue $sm;
+                  continue;
                 } else {
                   if (this.w15_1 === get_TC_BEGIN_LIST()) {
                     this.x15_1 = readArray(this.t15_1);
                     this.e9_1 = 2;
-                    continue $sm;
+                    continue;
                   } else {
                     var tmp_0 = this;
                     this.t15_1.n14_1.r13("Can't begin reading element, unexpected token");
@@ -23639,7 +23802,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
           case 1:
             this.x15_1 = suspendResult;
             this.e9_1 = 2;
-            continue $sm;
+            continue;
           case 2:
             return this.x15_1;
           case 3:
@@ -23693,11 +23856,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             var tmp_1 = this;
             tmp_1.j15_1 = LinkedHashMap_init_$Create$();
             this.e9_1 = 1;
-            continue $sm;
+            continue;
           case 1:
             if (!this.h15_1.n14_1.s14()) {
               this.e9_1 = 4;
-              continue $sm;
+              continue;
             }
 
             this.k15_1 = this.h15_1.o14_1 ? this.h15_1.n14_1.u14() : this.h15_1.n14_1.t14();
@@ -23708,7 +23871,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
               return suspendResult;
             }
 
-            continue $sm;
+            continue;
           case 2:
             var element = suspendResult;
             var this_0 = this.j15_1;
@@ -23718,11 +23881,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             var tmp0_subject = this.i15_1;
             if (tmp0_subject === get_TC_COMMA()) {
               this.e9_1 = 3;
-              continue $sm;
+              continue;
             } else {
               if (tmp0_subject === get_TC_END_OBJ()) {
                 this.e9_1 = 4;
-                continue $sm;
+                continue;
               } else {
                 this.h15_1.n14_1.r13('Expected end of the object or comma');
               }
@@ -23731,7 +23894,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
             break;
           case 3:
             this.e9_1 = 1;
-            continue $sm;
+            continue;
           case 4:
             if (this.i15_1 === get_TC_BEGIN_OBJ()) {
               this.h15_1.n14_1.q14(get_TC_END_OBJ());
@@ -23984,7 +24147,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     $l$loop: while (true) {
       var tmp = $this.fj(descriptor);
       if (!!(tmp === -1)) {
-        break $l$loop;
+        break;
       }
     }
   }
@@ -25875,12 +26038,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     $l$loop_0: while (true) {
       cpos = this.g19(cpos);
       if (cpos === -1)
-        break $l$loop_0;
+        break;
       var tmp0 = cpos;
       cpos = tmp0 + 1 | 0;
       var c = charSequenceGet(source, tmp0);
       if (((c === _Char___init__impl__6a9atx(32) ? true : c === _Char___init__impl__6a9atx(10)) ? true : c === _Char___init__impl__6a9atx(13)) ? true : c === _Char___init__impl__6a9atx(9))
-        continue $l$loop_0;
+        continue;
       this.xz_1 = cpos;
       if (c === expected)
         return Unit_instance;
@@ -25927,11 +26090,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     $l$loop_0: while (true) {
       cpos = this.g19(cpos);
       if (cpos === -1)
-        break $l$loop_0;
+        break;
       var ch = charSequenceGet(source, cpos);
       if (((ch === _Char___init__impl__6a9atx(32) ? true : ch === _Char___init__impl__6a9atx(10)) ? true : ch === _Char___init__impl__6a9atx(13)) ? true : ch === _Char___init__impl__6a9atx(9)) {
         cpos = cpos + 1 | 0;
-        continue $l$loop_0;
+        continue;
       }
       this.xz_1 = cpos;
       return charToTokenClass(ch);
@@ -25970,12 +26133,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     $l$loop_0: while (true) {
       current = this.g19(current);
       if (current === -1)
-        break $l$loop_0;
+        break;
       var c = charSequenceGet(this.f19(), current);
       if (((c === _Char___init__impl__6a9atx(32) ? true : c === _Char___init__impl__6a9atx(10)) ? true : c === _Char___init__impl__6a9atx(13)) ? true : c === _Char___init__impl__6a9atx(9)) {
         current = current + 1 | 0;
       } else {
-        break $l$loop_0;
+        break;
       }
     }
     this.xz_1 = current;
@@ -26114,7 +26277,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         } else {
           this.m16();
         }
-        continue $l$loop;
+        continue;
       }
       var tmp0_subject = lastToken;
       if (tmp0_subject === 8 ? true : tmp0_subject === 6) {
@@ -26191,7 +26354,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         isExponentPositive = true;
         hasExponent = true;
         current = current + 1 | 0;
-        continue $l$loop_4;
+        continue;
       }
       if (ch === _Char___init__impl__6a9atx(45) ? hasExponent : false) {
         if (current === start) {
@@ -26199,7 +26362,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         }
         isExponentPositive = false;
         current = current + 1 | 0;
-        continue $l$loop_4;
+        continue;
       }
       if (ch === _Char___init__impl__6a9atx(43) ? hasExponent : false) {
         if (current === start) {
@@ -26207,7 +26370,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         }
         isExponentPositive = true;
         current = current + 1 | 0;
-        continue $l$loop_4;
+        continue;
       }
       if (ch === _Char___init__impl__6a9atx(45)) {
         if (!(current === start)) {
@@ -26215,11 +26378,11 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         }
         isNegative = true;
         current = current + 1 | 0;
-        continue $l$loop_4;
+        continue;
       }
       var token = charToTokenClass(ch);
       if (!(token === 0))
-        break $l$loop_4;
+        break;
       current = current + 1 | 0;
       var digit = Char__minus_impl_a2frrh(ch, _Char___init__impl__6a9atx(48));
       if (!(0 <= digit ? digit <= 9 : false)) {
@@ -26229,7 +26392,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
         // Inline function 'kotlin.Long.plus' call
         // Inline function 'kotlin.Long.times' call
         exponentAccumulator = exponentAccumulator.i7(toLong(10)).k8(toLong(digit));
-        continue $l$loop_4;
+        continue;
       }
       // Inline function 'kotlin.Long.minus' call
       // Inline function 'kotlin.Long.times' call
@@ -26519,7 +26682,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       var tc = charToTokenClass(ch);
       var tmp;
       if (tc === get_TC_WHITESPACE()) {
-        continue $l$loop;
+        continue;
       } else {
         tmp = tc;
       }
@@ -26545,7 +26708,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       var c = charSequenceGet(this.w19_1, current);
       if (((c === _Char___init__impl__6a9atx(32) ? true : c === _Char___init__impl__6a9atx(10)) ? true : c === _Char___init__impl__6a9atx(13)) ? true : c === _Char___init__impl__6a9atx(9)) {
         current = current + 1 | 0;
-        continue $l$loop;
+        continue;
       }
       this.xz_1 = current;
       return this.i19(c);
@@ -26562,7 +26725,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       if (((c === _Char___init__impl__6a9atx(32) ? true : c === _Char___init__impl__6a9atx(10)) ? true : c === _Char___init__impl__6a9atx(13)) ? true : c === _Char___init__impl__6a9atx(9)) {
         current = current + 1 | 0;
       } else {
-        break $l$loop;
+        break;
       }
     }
     this.xz_1 = current;
@@ -26578,7 +26741,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
       this.xz_1 = tmp1 + 1 | 0;
       var c = charSequenceGet(source, tmp1);
       if (((c === _Char___init__impl__6a9atx(32) ? true : c === _Char___init__impl__6a9atx(10)) ? true : c === _Char___init__impl__6a9atx(13)) ? true : c === _Char___init__impl__6a9atx(9))
-        continue $l$loop;
+        continue;
       if (c === expected)
         return Unit_instance;
       this.k19(expected);
