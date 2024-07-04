@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT Skills Matrix</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 400px; /* Adjust height as needed */
+        }
+        canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+</head>
+<body>
+    <h1>AT Skills Matrix</h1>
+    <div class="chart-container">
+        <canvas id="skillsChart"></canvas>
+    </div>
+
+    <script>
+        // Sample data: Replace this array with your JSON array of responses
+        const skillsData = [
+        {
+  "Xcode": 8,
+  "Swift": 8,
+  "SwiftUI": 8,
+  "Objective-C": 8,
+  "UIKit": 8,
+  "Storyboards": 8,
+  "InteliJ": 2,
+  "JavaScript": 6,
+  "Kotlin": 2,
+  "Kotlin Multiplatform": 1,
+  "Compose Multiplatform": 1,
+  "Git": 7,
+  "CI/CD": 7,
+  "TDD": 8,
+  "Automated UI Testing": 6,
+  "Quick & Nimble": 1,
+  "XCTest": 8,
+  "App Deployment": 9,
+  "Code Reviewing": 8,
+  "Agile Methodologies": 7,
+  "SOLID": 9,
+  "KISS": 8,
+  "Integrating APIs": 7,
+  "Design Patterns": 7,
+  "Functional Programming": 7,
+  "Protocol Oriented Programming": 8,
+  "Dependancy Injection": 8,
+  "Memory Management": 7,
+  "Concurrency": 7,
+  "Debugging & Profiling": 9,
+  "Accessibility": 8,
+  "Localisation": 8,
+  "Data Persistence": 7,
+  "Security Best Practice": 6,
+  "Performance Optimisation": 7
+},
+{
+  "Xcode": 7,
+  "Swift": 8,
+  "SwiftUI": 7,
+  "Objective-C": 2,
+  "UIKit": 8,
+  "Storyboards": 7,
+  "InteliJ": 1,
+  "JavaScript": 2,
+  "Kotlin": 2,
+  "Kotlin Multiplatform": 1,
+  "Compose Multiplatform": 1,
+  "Git": 6,
+  "CI/CD": 5,
+  "TDD": 5,
+  "Automated UI Testing": 5,
+  "Quick & Nimble": 5,
+  "XCTest": 5,
+  "App Deployment": 7,
+  "Code Reviewing": 8,
+  "Agile Methodologies": 8,
+  "SOLID": 7,
+  "KISS": 6,
+  "Integrating APIs": 8,
+  "Design Patterns": 7,
+  "Functional Programming": 6,
+  "Protocol Oriented Programming": 7,
+  "Dependancy Injection": 6,
+  "Memory Management": 5,
+  "Concurrency": 7,
+  "Debugging & Profiling": 7,
+  "Accessibility": 4,
+  "Localisation": 5,
+  "Data Persistence": 7,
+  "Security Best Practice": 5,
+  "Performance Optimisation": 7
+},
+{
+  "Xcode": 7,
+  "Swift": 7,
+  "SwiftUI": 7,
+  "Objective-C": 1,
+  "UIKit": 4,
+  "Storyboards": 1,
+  "InteliJ": 8,
+  "JavaScript": 3,
+  "Kotlin": 7,
+  "Kotlin Multiplatform": 4,
+  "Compose Multiplatform": 1,
+  "Git": 8,
+  "CI/CD": 6,
+  "TDD": 6,
+  "Automated UI Testing": 9,
+  "Quick & Nimble": 7,
+  "XCTest": 7,
+  "App Deployment": 7,
+  "Code Reviewing": 7,
+  "Agile Methodologies": 6,
+  "SOLID": 6,
+  "KISS": 6,
+  "Integrating APIs": 4,
+  "Design Patterns": 7,
+  "Functional Programming": 5,
+  "Protocol Oriented Programming": 6,
+  "Dependancy Injection": 6,
+  "Memory Management": 3,
+  "Concurrency": 2,
+  "Debugging & Profiling": 7,
+  "Accessibility": 6,
+  "Localisation": 2,
+  "Data Persistence": 2,
+  "Security Best Practice": 2,
+  "Performance Optimisation": 2
+},
+{
+  "Xcode": 9,
+  "Swift": 8,
+  "SwiftUI": 4,
+  "Objective-C": 7,
+  "UIKit": 7,
+  "Storyboards": 9,
+  "InteliJ": 3,
+  "JavaScript": 0,
+  "Kotlin": 3,
+  "Kotlin Multiplatform": 1,
+  "Compose Multiplatform": 0,
+  "Git": 6,
+  "CI/CD": 5,
+  "TDD": 9,
+  "Automated UI Testing": 3,
+  "Quick & Nimble": 7,
+  "XCTest": 7,
+  "App Deployment": 8,
+  "Code Reviewing": 7,
+  "Agile Methodologies": 7,
+  "SOLID": 8,
+  "KISS": 9,
+  "Integrating APIs": 7,
+  "Design Patterns": 7,
+  "Functional Programming": 5,
+  "Protocol Oriented Programming": 7,
+  "Dependancy Injection": 9,
+  "Memory Management": 9,
+  "Concurrency": 6,
+  "Debugging & Profiling": 7,
+  "Accessibility": 1,
+  "Localisation": 1,
+  "Data Persistence": 5,
+  "Security Best Practice": 2,
+  "Performance Optimisation": 5
+},
+{
+ "Xcode": 8,
+ "Swift": 7,
+ "SwiftUI": 7,
+ "Objective-C": 7,
+ "UIKit": 7,
+ "Storyboards": 7,
+ "InteliJ": 3,
+ "JavaScript": 2,
+ "Kotlin": 4,
+ "Kotlin Multiplatform": 3,
+ "Compose Multiplatform": 3,
+ "Git": 5,
+ "CI/CD": 6,
+ "TDD": 7,
+ "Automated UI Testing": 3,
+ "Quick & Nimble": 4,
+ "XCTest": 5,
+ "App Deployment": 5,
+ "Code Reviewing": 7,
+ "Agile Methodologies": 4,
+ "SOLID": 2,
+ "KISS": 1,
+ "Integrating APIs": 0,
+ "Design Patterns": 5,
+ "Functional Programming": 7,
+ "Protocol Oriented Programming": 7,
+ "Dependancy Injection": 7,
+ "Memory Management": 5,
+ "Concurrency": 6,
+ "Debugging & Profiling": 4,
+ "Accessibility": 3,
+ "Localisation": 2,
+ "Data Persistence": 6,
+ "Security Best Practice": 4,
+ "Performance Optimisation": 4
+},
+{
+  "Xcode": 7,
+  "Swift": 8,
+  "SwiftUI": 5,
+  "Objective-C": 8,
+  "UIKit": 9,
+  "Storyboards": 9,
+  "InteliJ": 5,
+  "JavaScript": 2,
+  "Kotlin": 6,
+  "Kotlin Multiplatform": 7,
+  "Compose Multiplatform": 9,
+  "Git": 8,
+  "CI/CD": 7,
+  "TDD": 8,
+  "Automated UI Testing": 4,
+  "Quick & Nimble": 6,
+  "XCTest": 7,
+  "App Deployment": 8,
+  "Code Reviewing": 8,
+  "Agile Methodologies": 8,
+  "SOLID": 8,
+  "KISS": 5,
+  "Integrating APIs": 7,
+  "Design Patterns": 8,
+  "Functional Programming": 6,
+  "Protocol Oriented Programming": 7,
+  "Dependancy Injection": 7,
+  "Memory Management": 7,
+  "Concurrency": 7,
+  "Debugging & Profiling": 3,
+  "Accessibility": 3,
+  "Localisation": 4,
+  "Data Persistence": 5,
+  "Security Best Practice": 5,
+  "Performance Optimisation": 4
+},
+{
+  "Xcode": 7,
+  "Swift": 7,
+  "SwiftUI": 4,
+  "Objective-C": 6,
+  "UIKit": 7,
+  "Storyboards": 6,
+  "InteliJ": 5,
+  "JavaScript": 1,
+  "Kotlin": 6,
+  "Kotlin Multiplatform": 3,
+  "Compose Multiplatform": 1,
+  "Git": 6,
+  "CI/CD": 5,
+  "TDD": 5,
+  "Automated UI Testing": 3,
+  "Quick & Nimble": 6,
+  "XCTest": 6,
+  "App Deployment": 3,
+  "Code Reviewing": 6,
+  "Agile Methodologies": 5,
+  "SOLID": 6,
+  "KISS": 5,
+  "Integrating APIs": 6,
+  "Design Patterns": 5,
+  "Functional Programming": 5,
+  "Protocol Oriented Programming": 7,
+  "Dependancy Injection": 6,
+  "Memory Management": 4,
+  "Concurrency": 5,
+  "Debugging & Profiling": 4,
+  "Accessibility": 5,
+  "Localisation": 4,
+  "Data Persistence": 6,
+  "Security Best Practice": 3,
+  "Performance Optimisation": 5
+},
+{
+"Xcode": 8,
+"Swift": 8,
+"SwiftUI": 7,
+"Objective-C": 7,
+"UIKit": 8,
+"Storyboards": 3,
+"InteliJ": 6,
+"JavaScript": 1,
+"Kotlin": 6,
+"Kotlin Multiplatform": 4,
+"Compose Multiplatform": 2,
+"Git": 8,
+"CI/CD": 4,
+"TDD": 5,
+"Automated UI Testing": 5,
+"Quick & Nimble": 5,
+"XCTest": 7,
+"App Deployment": 7,
+"Code Reviewing": 7,
+"Agile Methodologies": 7,
+"SOLID": 7,
+"KISS": 8,
+"Integrating APIs": 7,
+"Design Patterns": 6,
+"Functional Programming": 8,
+"Protocol Oriented Programming": 7,
+"Dependancy Injection": 7,
+"Memory Management": 6,
+"Concurrency": 6,
+"Debugging & Profiling": 6,
+"Accessibility": 6,
+"Localisation": 4,
+"Data Persistence": 5,
+"Security Best Practice": 4,
+"Performance Optimisation": 4
+}
+        ];
+
+        // Process data to calculate average scores for each skill
+        const skillNames = Object.keys(skillsData[0]);
+        const skillScores = {};
+
+        skillNames.forEach(skill => {
+            skillScores[skill] = 0;
+        });
+
+        skillsData.forEach(response => {
+            skillNames.forEach(skill => {
+                skillScores[skill] += response[skill];
+            });
+        });
+
+        skillNames.forEach(skill => {
+            skillScores[skill] /= skillsData.length;
+        });
+
+        // Function to determine color based on value
+        function getColor(value) {
+            const red = Math.min(255, (10 - value) * 25.5);
+            const green = Math.min(255, value * 25.5);
+            return `rgba(${red}, ${green}, 0, 0.7)`;
+        }
+
+        const data = {
+            labels: skillNames,
+            datasets: [{
+                label: 'Average Skill Level',
+                data: skillNames.map(skill => skillScores[skill]),
+                backgroundColor: skillNames.map(skill => getColor(skillScores[skill])),
+                borderColor: skillNames.map(skill => getColor(skillScores[skill])),
+                borderWidth: 1
+            }]
+        };
+
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10
+                    }
+                }
+            }
+        };
+
+        const skillsChart = new Chart(
+            document.getElementById('skillsChart'),
+            config
+        );
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT Skills Matrix</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .skill {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        label {
+            flex: 2;
+        }
+
+        input[type="number"] {
+            flex: 1;
+            text-align: right;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>AT Skills Matrix</h1>
+    <p>Select your skill level (0 = No Idea 🤷‍♂️ & 10 = Genius 🧠)</p>
+    <form id="skillsForm">
+        <div id="skillsList"></div>
+        <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+    <script>
+        const skills = [
+            "Xcode", "Swift", "SwiftUI", "Objective-C", "UIKit", "Storyboards",
+            "InteliJ", "JavaScript", "Kotlin", "Kotlin Multiplatform", "Compose Multiplatform",
+            "Git", "CI/CD", "TDD",
+            "Automated UI Testing", "Quick & Nimble", "XCTest",
+            "App Deployment", "Code Reviewing", "Agile Methodologies",
+            "SOLID", "KISS", "Integrating APIs", "Design Patterns", 
+            "Functional Programming", "Protocol Oriented Programming", "Dependancy Injection",
+            "Memory Management", "Concurrency", "Debugging & Profiling",
+            "Accessibility", "Localisation", "Data Persistence",
+            "Security Best Practice", "Performance Optimisation"
+        ];
+
+        const skillsListDiv = document.getElementById('skillsList');
+
+        skills.forEach(skill => {
+            const skillDiv = document.createElement('div');
+            skillDiv.classList.add('skill');
+            skillDiv.innerHTML = `
+                <label for="${skill}">${skill}:</label>
+                <input type="number" id="${skill}" name="${skill}" min="0" max="10" value="0" required>
+            `;
+            skillsListDiv.appendChild(skillDiv);
+        });
+
+        function submitForm() {
+            const form = document.getElementById('skillsForm');
+            const formData = new FormData(form);
+            const results = {};
+            formData.forEach((value, key) => {
+                results[key] = parseInt(value);
+            });
+            const json = JSON.stringify(results, null, 2);
+            const email = 'laurie.keith@autotrader.co.uK';
+            const encodedSubject = encodeURIComponent("AT Skills Matrix");
+            const encodedBody = encodeURIComponent(json);
+            const href =`mailto:${email}?subject=${encodedSubject}&body=${encodedBody}`;
+            window.location.href = href;
+        }
+    </script>
+</body>
+
+</html>
